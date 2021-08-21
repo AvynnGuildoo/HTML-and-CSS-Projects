@@ -1,0 +1,11 @@
+html {
+    font-family: sans-serif;
+    font-size: 62.50;
+}
+
+.reservation input[type="text"] {
+    width: 80%;
+    margin: 10px 1em;
+    border: 1px solid #808080;
+    border-radius: 7px;
+}
