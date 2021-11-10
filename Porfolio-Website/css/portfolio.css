@@ -1,7 +1,27 @@
 /***** GENERAL STYLING *****/
+
+/* Affects entire document */
+html {
+    scroll-behavior: smooth; /* This ensures that the page scrolling is smooth when 
+    the buttons on the nav bar is clicked */
+}
+
 /* BODY */
 body {
-    margin: 0%
+    margin: 0%;
+    opacity: 1;
+    transition: 3s opacity;
+    letter-spacing: .2vw;
+    font-family: Avant Garde, Helvetica;
+    font-size: 1.5vw;
+    overflow-x: hidden;
+    user-select: none;
+}
+
+/* This section contributes to the fade effect for the page that occurs
+when the page is loaded */
+body.fade-out {
+    opacity: .1;
 }
 
 /* Heading 1 Elements */
@@ -23,16 +43,17 @@ h1:hover {
 /* Styling for portfolio title text */
 .white-text {
     color: #fff;
+    padding-top: 10vh;
 }
 
 /* Paragraph elements */
 p {
     font-family: Perpetua, Rockwell Extra Bold;
     text-align: justify;
-    letter-spacing: 1px;
-    font-size: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 /* Paragraph element hover effect */
 p:hover {
@@ -54,6 +75,8 @@ p:hover {
 /* Anchor Elements */
 a {
     color: blue;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 /* Quotation elements */
@@ -68,18 +91,16 @@ img {
     max-width: 100%;
     height: 340px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto auto auto auto;
 }
 
 /* Image element hover effect */
 img:hover {
     filter: grayscale(5%);
-    transition: transform 1s;
-    transform: scale(1.1);
 }
 
-/* The @media rule is used in media queries to apply different styles for different media/types of devices */
+/* The @media rule is used in media queries to apply different styles for different 
+media/types of devices */
 @media screen and (max-width: 576px) {
     img {
         height: 100px;
@@ -117,10 +138,10 @@ footer {
     float: left;
     display: block;
     color: white;
-    padding: 14px 16px;
+    padding: .75vw 1vw;
     text-decoration: none;
     font-family: Avant Garde, Helvetica;
-    font-size: 20px;
+    font-size: 1.5vw;
     text-align: center;
     position: relative;
     -webkit-animation: moveNavText 5.75s;
@@ -135,7 +156,7 @@ footer {
 
 @media screen and (max-width: 576px) {
     .Navbar a{
-        width: 25%;
+        width: 20%;
         font-size: 12px;
     }
 }
@@ -145,6 +166,7 @@ footer {
     background-color: #f4f4f4;
     color: black;
     font-weight: bold;
+    cursor: pointer;
 }
 
 /* Navbar home button */
@@ -174,7 +196,8 @@ footer {
     background: rgba(0, 0, 0, 0.5);
     color: white;
     width: 100%;
-    padding: 20px;
+    height: 100vh;
+    padding-top: 2vh;
     position: relative;
     -webkit-animation: moveVideoText 5.75s;
     animation: moveVideoText 5.75s;
@@ -186,6 +209,112 @@ footer {
 }
 /***** END OF VIDEO STYLING *****/
 
+/***** SLIDESHOW STYLING *****/
+#Slideshow_Background {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.mySlides {
+    display: none;
+}
+
+/* Slideshow Section / Container */
+#Slideshow_Container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+/* Images Contained Within the Slideshow */
+.Slideshow_Images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75);
+    width: 100%;
+}
+
+/* Next and Previous Buttons */
+.Previous, .Next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    color: darkgrey;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+/* Positioning the Next Button on the Right Side */
+.Next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Hover Effect on Slide Show Buttons */
+.Previous:hover, .Next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+/* Slideshow Text */
+.text {
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: Perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    background-color: rgba(0, 0, 0, 0.75);
+    font-weight: bold;
+    border-radius: 0px 0px 7px 7px;
+}
+
+/* Styling of the Dots Under the Slideshow */
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    z-index: 1;
+}
+
+/* Hover Effect for the Slideshow Dots */
+.active, .dot:hover {
+    background-color: black;
+}
+
+/* Fading Animation for Slideshow */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+@keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+/***** END SLIDESHOW STYLING *****/
+
 /***** TABLE STYLING *****/
 * {
     box-sizing: border-box;
@@ -194,13 +323,12 @@ footer {
 .Column_1 {
     float: left;
     width: 50%;
-    padding: 10px;
-    padding-top: 3%;
-    height: 400px;
+    padding: 1.6%;
+    height: 450px;
     background-color: #f2f2f2;
 }
 
-@media screen and (max-wisth: 576px;) {
+@media screen and (max-width: 576px) {
     .Column_1 {
         overflow: auto;
     }
@@ -209,15 +337,9 @@ footer {
 .Column_2 {
     float: left;
     width: 50%;
-    padding: 10px;
-    padding-top: 1.9%;
-    height: 400px;
-    background-color: #4d4d4d;
-}
-
-.Column_tall {
-    padding-top: 3.5%;
+    padding: 1.6%;
     height: 450px;
+    background-color: #4d4d4d;
 }
 
 .Row:after {
@@ -228,51 +350,102 @@ footer {
 /***** END OF TABLE STYLING *****/
 
 /***** CONTACT FORM STYLING *****/
-input[type=text] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-    font-family: Perpetua, Rockwell Extra Bold;
+
+/* Button Used to Open the Contact Form - Fixed at the Bottom of the Page */
+.Pop_Up_Button {
+    position: fixed;
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 25vw;
+    background-color: white;
+    color: black;
+    border: solid black;
+    cursor: pointer;
+    -webkit-animation: movePopup 5s;
+    animation: movePopup 5s;
 }
 
-/* Hover effects for input boxes */
-input[type=text]:hover {
-    box-shadow: 0 0 5px #00004d inset;
+/* movePopup Animation Moves the Button From Off the Right Side of the Screen to its Fixed
+Location on the Viewport */
+@keyframes movePopup {
+    from{right: -40vw;}
+    to{right: 1.75vw;}
+}
+
+@-webkit-keyframes movePopup {
+    from {right: -40vw;}
+    to {right: 1.75vw;}
+}
+
+/* Styling for the Contact Form */
+.form-popup {
+    border: 3px solid #f0f1f0;
+    z-index: 8;
+    display: none;
+    position: fixed;
+    bottom: .5vw;
+    right: .5vw;
+}
+
+/* Form Styling */
+.form-container {
+    max-width: 49vw;
+    padding: 1vw;
+    background-color: white;
+}
+
+/* Input Fields */
+.form-container input[type=text] {
+    width: 100%;
+    padding: .93vw;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: Gainsboro;
+    font-size: 1vw;
+}
+
+/* General Styling For All Buttons */
+button {
+    font-family: "Trebuchet MS", Optima;
+    letter-spacing: .3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1.5vw;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+/* Hover Effect For Contact and Sumbit Buttons */
+button:hover, .form-container .btn:hover {
+    color: white;
+    background-color: black;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-color: silver;
 }
 
 /* Submit Button */
-input[type=submit] {
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: Perpetua, Rockwell Extra Bold;
-}
-
-/* Hover effect for submit button */
-input[type=submit]:hover {
+.form-container .btn {
     background-color: white;
     color: black;
-    transform: scale(1.5);
-    transition: transform 1.5s;
+    border-color: black;
+    margin-bottom: 1vh;
 }
 
-/* Form element */
-form {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 10px;
-    font-family: "Trebuchet MS", Optima;
+/* Close Button */
+.form-container .cancel {
+    background-color: black;
+    color: white;
+    border-color: grey;
+}
+
+/* Styling for Close Button on Hover */
+.form-container .cancel:hover {
+    color: white;
+    background-color: darkred;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-color: black;
 }
 /***** END OF CONTACT FORM STYLING *****/
